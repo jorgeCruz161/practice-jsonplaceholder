@@ -1,0 +1,23 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+
+<div *ngIf="!isLoading">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Nombre</th>
+				<th scope="col">Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let tarea of tareas | slice: (page-1)*pageSize : page*pageSize; index as i">
+				<th scope="row">{{ i + 1 }}</th>
+				<td>{{ tarea.title }}</td>
+				<td>{{ tarea.completed }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="pagination-container">
+		<ngb-pagination [collectionSize]="tareas.length" [(page)]="page" [pageSize]="pageSize" [boundaryLinks]="true" [size]="'sm'"></ngb-pagination>
+	</div>
+</div>

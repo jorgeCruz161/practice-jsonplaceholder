@@ -1,0 +1,27 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+
+<div *ngIf="!isLoading">
+    <h3>Detalle del usuario: {{ usuario?.name }}</h3>
+    <div class="row">
+        <div class="col">
+            <strong class="col-sm col-form-label">Alias: </strong><label>{{ usuario?.username }}</label>
+            <br>
+            <strong class="col-sm col-form-label">Correo: </strong><label>{{ usuario?.email }}</label>
+            <br>
+            <strong class="col-sm col-form-label">Dirección: </strong><label class="col-sm col-form-label">{{ usuario?.address?.city }}, {{ usuario?.address?.street }}</label>
+        </div> 
+        <div class="col">
+            <strong class="col-sm col-form-label">Codigo Postal: </strong><label>{{ usuario?.address?.zipcode }}</label>
+            <br>
+            <strong class="col-sm col-form-label">Teléfono: </strong><label>{{ usuario?.phone }}</label> 
+        </div> 
+        <div class="col">
+            <strong class="col-sm col-form-label">Pagina Web: </strong><a href="#">{{ usuario?.website }}</a>
+            <br>
+            <strong class="col-sm col-form-label">Compañia: </strong><label>{{ usuario?.company?.name }}</label>
+        </div> 
+    </div>    
+</div>
+
+
+

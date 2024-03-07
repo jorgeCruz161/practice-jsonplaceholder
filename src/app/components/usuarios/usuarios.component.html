@@ -1,0 +1,20 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+
+<div *ngIf="!isLoading">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Nombre</th>
+				<th scope="col">Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let user of usuarios; index as i" (click)="goToDetailUser(user.id)" >
+				<th scope="row">{{ i + 1 }}</th>
+				<td>{{ user.name }}</td>
+				<td>{{ user.email }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
